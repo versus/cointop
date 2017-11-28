@@ -58,15 +58,15 @@ func getData(url string) ([][]string, error) {
 		if err != nil {
 			panic(err)
 		}
-		item := []string { 	coin.Rank,
-				  			coin.Symbol,
-							coin.Name,
-							coin.PriceUsd,
-							coin.PriceBtc,
-							coin.Percent1h,
-							coin.Percent24h,
-							coin.Percent7d,
-							fmt.Sprint(time.Unix(i, 0)),
+		item := []string{ coin.Rank,
+						  coin.Symbol,
+						  coin.Name,
+						  coin.PriceUsd,
+						  coin.PriceBtc,
+						  coin.Percent1h,
+						  coin.Percent24h,
+						  coin.Percent7d,
+						  fmt.Sprint(time.Unix(i, 0)),
 		}
 		data = append(data, item)
 

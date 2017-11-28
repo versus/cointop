@@ -41,7 +41,7 @@ func getJson(url string) ([]byte, error) {
 	return buf.Bytes(), err
 }
 
-func getData(url string) ( [][]string, error) {
+func getData(url string) ([][]string, error) {
 	json_data, err := getJson(url)
 	if err != nil {
 		return nil, err
@@ -58,16 +58,16 @@ func getData(url string) ( [][]string, error) {
 		if err != nil {
 			panic(err)
 		}
-		item :=make([]string,9)
-		item[0] = coin.Rank
-		item[1] = coin.Symbol
-		item[2] = coin.Name
-		item[3] = coin.PriceUsd
-		item[4] = coin.PriceBtc
-		item[5] = coin.Percent1h
-		item[6] = coin.Percent24h
-		item[7] = coin.Percent7d
-		item[8] = fmt.Sprint(time.Unix(i, 0))
+		item := []string { 	coin.Rank,
+				  			coin.Symbol,
+							coin.Name,
+							coin.PriceUsd,
+							coin.PriceBtc,
+							coin.Percent1h,
+							coin.Percent24h,
+							coin.Percent7d,
+							fmt.Sprint(time.Unix(i, 0)),
+		}
 		data = append(data, item)
 
 	}
@@ -87,5 +87,4 @@ func main() {
 	table.SetCenterSeparator("|")
 	table.AppendBulk(data)
 	table.Render()
-
 }
